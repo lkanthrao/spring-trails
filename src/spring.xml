@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- <bean id="triangle" class="rao.spring.Triangle"> <constructor-arg value 
+		= "10" type="String"/> </bean> -->
+
+	<bean id="triangle" class="rao.spring.Triangle">
+		<property name="pointA" ref="pointA" />
+		<property name="pointB">
+			<bean id="pointB" class="rao.spring.Point">
+				<property name="x" value="2" />
+				<property name="y" value="3" />
+			</bean>
+		</property>
+		<property name="pointC" ref="pointC" />
+	</bean>
+
+	<bean id="pointA" class="rao.spring.Point">
+		<property name="x" value="0" />
+		<property name="y" value="1" />
+	</bean>
+
+	<bean id="pointC" class="rao.spring.Point">
+		<property name="x" value="4" />
+		<property name="y" value="5" />
+	</bean>
+
+	<alias name="triangle" alias="triangle-alias" />
+
+</beans>
